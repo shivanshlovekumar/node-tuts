@@ -1,38 +1,13 @@
-//const names = require('./4-names');
-//const sayHi = require('./5-utils');
-//const data = require('./6-alternative');
-//console.log(names);
-//require('./7-mind');
-//sayHi('Ravi');
-//sayHi(names.john);
-//sayHi(names.Peeter);
+const EventEmitter = require('events');
 
-//console.log(data);
+const customEmitter = new EventEmitter();
 
-//const os = require('os');
+customEmitter.on('response',()=>{
+	console.log(`data received`);
+})
 
-//Info about curretn user
+customEmitter.on('response',()=>{
+	console.log(`some other logic`);
+})
 
-//const user = os.userInfo();
-//console.log(user);
-
-//method returns the system up time in seconds
-///console.log(`The Systmee up time is ${os.uptime()} seconds`);
-
-/*const currentOs = {
-	name:os.type(),
-	release:os.release(),
-	totalMem: os.totalmem(),
-	freeMem:os.freemem()
-}
-*/
-
-//console.log(currentOs);
-
-//Http Module
-
-const _ =  require('lodash');
-const item = [1, [2,[3,[4]]]];
-const newitems = _.flattenDeep(item);
-console.log(newitems);
-console.log('Hekki')
+customEmitter.emit('response');
